@@ -1,0 +1,57 @@
+# Q9: Comprehension is Everything(BNF)
+start: comp
+
+?comp: "[" expression "for" IDENTIFIER "in" IDENTIFIER "]"
+
+expression: IDENTIFIER operation*
+
+operation: OPERATOR NUMBER
+
+IDENTIFIER: /[a-zA-Z]+/
+
+OPERATOR: "*" | "/" | "+" | "-"
+
+%import common.NUMBER
+%ignore /\s+/
+
+# comp, expression, operation
+
+# error: [x - 2 for x in my_list] reason: "IDENTIFIER: /[a-zA-Z]+/"
+# [x * 2 for x in list], [x for x in list]
+
+# OPERATOR: "*" | "/" | "+" | "-"
+# ?comp: "[" expression "for" IDENTIFIER "in" IDENTIFIER "]"
+
+# add "if"
+start: comp
+
+?comp: "[" expression "for" IDENTIFIER "in" IDENTIFIER ("if" OPERATOR NUMBER)? "]"
+
+expression: IDENTIFIER operation*
+
+operation: OPERATOR NUMBER
+
+IDENTIFIER: /[a-zA-Z]+/
+
+OPERATOR: "*" | "/" | "+" | "-" | ">" | "<" | "==" | ">=" | "<=" | "!="
+
+%import common.NUMBER
+%ignore /\s+/
+
+# add "nested List comprehension" after adding "if"
+# example of List comprehension: [i for i in range(5)]
+# error: not "start: nested"
+start: comp
+
+?comp: "[" (expression|comp) "for" IDENTIFIER "in" (IDENTIFIER|comp) ("if" OPERATOR NUMBER)? "]"
+
+expression: IDENTIFIER operation*
+
+operation: OPERATOR NUMBER
+
+IDENTIFIER: /[a-zA-Z]+/
+
+OPERATOR: "*" | "/" | "+" | "-" | ">" | "<" | "==" | ">=" | "<=" | "!="
+
+%import common.NUMBER
+%ignore /\s+/

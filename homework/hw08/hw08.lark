@@ -1,0 +1,50 @@
+//note: Create some simple parser for python(Link, Tree) by BNF
+//Q3: Linked List BNF
+link: "Link" "(" link_first ((", ")* link_rest)* ")"
+
+// note: first may is a link
+?link_first: NUMBER | link
+
+?link_rest: link
+
+%ignore /\s+/
+%import common.NUMBER
+
+// reference: more concise, just using: (", " link)
+// link: "Link(" link_first link_rest? ")"
+// ?link_first: link|NUMBER
+// ?link_rest: ", " link
+
+//Q4: Tree BNF
+tree_node: "Tree(" label branches? ")"
+
+?label: NUMBER
+
+branches: ", [" (tree_node | (tree_node", "))+ "]"
+
+%ignore /\s+/
+%import common.NUMBER
+
+// reference: more concise, just "copy" form of branchs
+// tree_node: "Tree(" label branches? ")"
+// ?label: NUMBER
+// branches:", [" (tree_node ",")* tree_node "]"
+
+//note: Create a simple parser for RegEx by BNF
+//Q5: Grouping and Pipes and Q6: Classes
+rstring: "r\"" regex* "\""
+
+?regex: character | word | group | pipe | class
+
+character: LETTER | NUMBER
+word: WORD
+group: "(" regex ")"
+pipe: regex "|" regex
+class: "[" (character | range)+ "]"
+// note: [0-Z] would not be a valid range. 
+range: (LETTER "-" LETTER) | (NUMBER "-" NUMBER)
+
+%ignore /\s+/
+%import common.LETTER
+%import common.NUMBER
+%import common.WORD

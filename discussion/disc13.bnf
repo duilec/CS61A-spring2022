@@ -1,0 +1,72 @@
+# q3 Calculator BNF
+# yes(ture)
+
+# yes
+
+# no(false)
+
+# yes
+
+# yes
+
+# no
+
+# yes
+
+# no
+
+# yes, we can support "%" by adding OPERATOR
+
+# no, some "output"s is error
+# reference:
+# No, this grammar gives enough information for parsing a Calculator expression, 
+# but it does not provide enough information to evaluate it
+
+# q4
+# Sorry~, I draw trees in my notebook
+# reference solution
+
+# q5 Simple CSV
+?start: lines
+lines: line ("\n" line)*
+line: word ("," word)*
+word: WORD?
+
+# reference: (it is reversed comparing my solution)
+# ?start: lines
+# lines: (line "\n")* line "\n"?
+# line: (word ",")* word
+# word: WORD?
+
+%import common.WORD
+
+%doctest
+lark> first,second,third
+....> fourth,fifth,sixth,,eighth
+lines
+  line
+    word  first
+    word  second
+    word  third
+  line
+    word  fourth
+    word  fifth
+    word  sixth
+    word
+    word  eighth
+lark> one,,,,three
+lines
+  line
+    word  one
+    word
+    word
+    word
+    word  three
+lark> ,,,word
+lines
+  line
+    word
+    word
+    word
+    word  word
+%end
