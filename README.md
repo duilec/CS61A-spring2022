@@ -6,6 +6,8 @@ This is my solution about  homework, lab, discussion, project in CS61A spring 20
 I test some examples in chapter and give some my personal solution of exercise in lecture.
 if you find some file's names of **"demo.py"** that is my test program, **you can ignore them**.
 
+Thank for teachers who open CS61A!
+
 ## **course introduce**
 
 An introduction to programming and computer science focused on abstraction techniques as means to manage program complexity. Techniques include procedural abstraction; control abstraction using recursion, higher-order functions, generators, and streams; data abstraction using interfaces, objects, classes, and generic operators; and language abstraction using interpreters and macros. 
