@@ -6,7 +6,7 @@ This is my solution about  homework, lab, discussion, project in CS61A spring 20
 I test some examples in chapter and give some my personal solution of exercise in lecture.
 if you find some file's names of **"demo.py"** that is my test program, **you can ignore them**.
 
-
+Thanks to the UCB professors for making this class public!
 
 ## **course introduce**
 
