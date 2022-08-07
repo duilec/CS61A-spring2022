@@ -2,9 +2,11 @@
 
 ## introduce
 
-This is my solution of CS61A in spring 2022 about  homework, lab, discussion, project. But **I don't finish scheme_stubbed and scheme_contest** in project and **some discussions not record**.
+This is my solution about  homework, lab, discussion, project in CS61A spring 2022. But **I don't finish scheme_stubbed and scheme_contest** in project and **some discussions not record**.
 I test some examples in chapter and give some my personal solution of exercise in lecture.
 if you find some file's names of **"demo.py"** that is my test program, **you can ignore them**.
+
+
 
 ## **course introduce**
 
@@ -25,4 +27,3 @@ FROM: [CS 61A. The Structure and Interpretation of Computer Programs](https://ww
 - [online python tutor](https://pythontutor.com/composingprograms.html#mode=edit)
 - [RegExr Helper](https://regexr.com/6r3v1)
 - [EECS Course WEB Sites](https://inst.eecs.berkeley.edu/classes-eecs.html)
-
